@@ -1,0 +1,115 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #7d7b93;
+    color: #383333;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #4e4d4f;
+    font-size: 16px;
+}
+
+.card {
+    background: rgb(186, 177, 200);
+    padding: 25px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.card h2 {
+    margin-bottom: 20px;
+    font-size: 21px;
+}
+
+.upload-area {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+input[type="file"] {
+    padding: 10px;
+    border: 1px solid #9a9a9a;
+    border-radius: 6px;
+}
+
+button {
+    border: none;
+    padding: 12px 20px;
+    border-radius: 7px;
+    background: #333232;
+    color: rgb(214, 213, 213);
+    cursor: pointer;
+    font-size: 15px;
+}
+
+button:hover {
+    background: #444;
+}
+
+.ask-button {
+    margin-top: 15px;
+}
+
+textarea {
+    width: 100%;
+    min-height: 120px;
+    resize: vertical;
+    padding: 15px;
+    border: 1px solid #adacac;
+    border-radius: 8px;
+    font-size: 16px;
+    outline: none;
+    background: #c5c0c0;
+}
+
+textarea:focus {
+    border-color: #555;
+}
+
+.status {
+    margin-top: 15px;
+    color: #555;
+}
+
+.answer-card {
+    min-height: 220px;
+}
+
+.answer {
+    line-height: 1.7;
+    white-space: pre-wrap;
+    color: #333;
+}
+
+.source {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #cbc9c9;
+    color: #777;
+    font-size: 14px;
+}

@@ -1,0 +1,130 @@
+venv/
+__pycache__/
+*.pyc
+
+.env
+
+uploads
+rag_store.pkl
+
+
+# ================================
+# Python
+# ================================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# ================================
+# Virtual Environment
+# ================================
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+apikey.txt
+# ================================
+# Environment / Secrets
+# ================================
+.env
+.env.*
+!.env.example
+
+# ================================
+# Jupyter Notebook
+# ================================
+.ipynb_checkpoints/
+
+# ================================
+# Python Cache / Tools
+# ================================
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.cache/
+
+# ================================
+# Flask
+# ================================
+instance/
+
+# ================================
+# Streamlit
+# ================================
+.streamlit/secrets.toml
+
+# ================================
+# Logs
+# ================================
+*.log
+logs/
+
+# ================================
+# Temporary Files
+# ================================
+*.tmp
+*.temp
+tmp/
+temp/
+
+# ================================
+# Generated Output
+# ================================
+outputs/
+results/
+uploads/
+
+# ================================
+# Model Files
+# ================================
+# Uncomment these if your model files are large
+# *.pkl
+# *.joblib
+# *.h5
+# *.keras
+# *.pt
+# *.pth
+# *.onnx
+
+# ================================
+# Large Dataset Files
+# ================================
+# Uncomment these if datasets are large
+# *.csv
+# *.xlsx
+# *.xls
+# *.parquet
+
+# ================================
+# VS Code
+# ================================
+.vscode/
+
+# ================================
+# Windows / OS
+# ================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ================================
+# Build Files
+# ================================
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ================================
+# Node.js / React / Vite
+# ================================
+node_modules/
+.npm/
+.vite/
+
+# Frontend Build
+frontend/dist/
+frontend/build/

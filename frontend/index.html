@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Document Q&A Assistant</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('frontend', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Document Q&A Assistant</h1>
+            <p>
+                Upload your document and ask questions
+                from your own content.
+            </p>
+        </header>
+
+        <!-- UPLOAD SECTION -->
+
+        <section class="card">
+
+            <h2>1. Upload Document</h2>
+
+            <div class="upload-area">
+
+                <input
+                    type="file"
+                    id="documentInput"
+                    accept=".pdf,.txt,.docx,.png,.jpg,.jpeg"
+                >
+
+                <button
+                    onclick="uploadDocument()"
+                >
+                    Upload Document
+                </button>
+
+            </div>
+
+            <div
+                id="uploadStatus"
+                class="status"
+            ></div>
+
+        </section>
+
+        <!-- QUESTION SECTION -->
+
+        <section class="card">
+
+            <h2>2. Ask a Question</h2>
+
+            <textarea
+                id="question"
+                placeholder="Example: What does the Covariance Matrix mean?"
+            ></textarea>
+
+            <button
+                class="ask-button"
+                onclick="askQuestion()"
+            >
+                Ask Question
+            </button>
+
+        </section>
+
+        <!-- ANSWER SECTION -->
+
+        <section class="card answer-card">
+
+            <h2>Answer</h2>
+
+            <div
+                id="answer"
+                class="answer"
+            >
+                Upload a document and ask a question.
+            </div>
+
+            <div
+                id="source"
+                class="source"
+            ></div>
+
+        </section>
+
+    </div>
+
+
+    <script>
+
+        async function uploadDocument() {
+
+            const input =
+                document.getElementById(
+                    "documentInput"
+                );
+
+            const status =
+                document.getElementById(
+                    "uploadStatus"
+                );
+
+            if (!input.files.length) {
+
+                status.innerText =
+                    "Please select a document.";
+
+                return;
+            }
+
+            const formData =
+                new FormData();
+
+            formData.append(
+                "document",
+                input.files[0]
+            );
+
+            status.innerText =
+                "Uploading and processing document...";
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/upload",
+                        {
+                            method: "POST",
+                            body: formData
+                        }
+                    );
+
+                const data =
+                    await response.json();
+
+                if (data.success) {
+
+                    status.innerText =
+                        `✓ ${data.filename} uploaded successfully.`;
+
+                } else {
+
+                    status.innerText =
+                        data.message;
+                }
+
+            } catch (error) {
+
+                status.innerText =
+                    "Upload failed.";
+            }
+        }
+
+
+        async function askQuestion() {
+
+            const question =
+                document
+                    .getElementById(
+                        "question"
+                    )
+                    .value
+                    .trim();
+
+            const answer =
+                document.getElementById(
+                    "answer"
+                );
+
+            const source =
+                document.getElementById(
+                    "source"
+                );
+
+            if (!question) {
+
+                answer.innerText =
+                    "Please enter a question.";
+
+                return;
+            }
+
+            answer.innerText =
+                "Thinking...";
+
+            source.innerText = "";
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/ask",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body: JSON.stringify({
+                                question: question
+                            })
+                        }
+                    );
+
+                const data =
+                    await response.json();
+
+                if (data.success) {
+
+                    answer.innerText =
+                        data.answer;
+
+                    source.innerText =
+                        `Source Page: ${data.page}
+                         | Similarity: ${data.score.toFixed(4)}`;
+
+                } else {
+
+                    answer.innerText =
+                        data.message;
+                }
+
+            } catch (error) {
+
+                answer.innerText =
+                    "Something went wrong.";
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
