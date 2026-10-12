@@ -10,7 +10,7 @@ from flask import (
 
 from werkzeug.utils import secure_filename
 
-from backend.reg_engine import (
+from reg_engine import (
     load_document,
     ask_document
 )
