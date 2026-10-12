@@ -6,7 +6,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: #7d7b93;
+    background: #eaeaf1;
     color: #383333;
 }
 
@@ -32,7 +32,7 @@ header p {
 }
 
 .card {
-    background: rgb(186, 177, 200);
+    background: rgb(246, 244, 249);
     padding: 25px;
     margin-bottom: 20px;
     border-radius: 12px;
@@ -80,11 +80,11 @@ textarea {
     min-height: 120px;
     resize: vertical;
     padding: 15px;
-    border: 1px solid #adacac;
+    border: 1px solid #ede8e8;
     border-radius: 8px;
     font-size: 16px;
     outline: none;
-    background: #c5c0c0;
+    background: #eee6e6;
 }
 
 textarea:focus {
