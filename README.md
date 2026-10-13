@@ -1,5 +1,8 @@
 # Q&A Assistant
 
+#deployment on rendor : https://q-a-llm.onrender.com
+
+
 A document-based AI Q&A Assistant that allows users to upload **PDF, PPT, DOC, and PNG files** and ask questions about their content.
 
 The system processes the uploaded documents and generates answers based on the available document information using **Google Gemini LLM and Gemini models**.
